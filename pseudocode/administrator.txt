@@ -1,0 +1,30 @@
+Index:
+    Find status of all books
+    Provide homepage
+
+
+Add:
+    Provide form
+
+    Else:
+        Make sure book exists
+        Check if book is already in library
+        Add book and other info to database
+        Provide homepage with status message
+
+
+Remove:
+    Provide form
+
+    Else:
+        Make sure book is in library
+        Make sure book is not checked out
+        Remove book from database
+        Provide homepage with status message
+
+
+Return:
+    Make sure book was checked out
+    Send notification to user who checked out the book
+    Change book's status in database
+    Provide homepage with status message

@@ -7,26 +7,15 @@ Register:
     Provide form
 
     Else:
-        Make sure username isn't taken
+        Make sure email isn't taken
         Make sure passwords match
         Add info to database
         Provide homepage
 
 
-Login:
-    Provide form
-
-    Else:
-        Make sure username exists
-        Make sure password hash matches
-        Log user in
-        Provide homepage
-
-
-Logout:
-    Log user out
-    Provide login page
-
+Browse:
+    Find info on all books
+    Provide page
 
 Check out:
     Make sure book is available

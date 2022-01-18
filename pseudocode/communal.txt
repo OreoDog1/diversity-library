@@ -1,0 +1,13 @@
+Login:
+    Provide form
+
+    Else:
+        Make sure username exists
+        Make sure password hash matches
+        Log user in
+        Provide homepage
+
+
+Logout:
+    Log user out
+    Provide login page
