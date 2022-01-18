@@ -1,0 +1,35 @@
+Index:
+    Find status of all books the user has checked out
+    Provide homepage
+
+
+Register:
+    Provide form
+
+    Else:
+        Make sure username isn't taken
+        Make sure passwords match
+        Add info to database
+        Provide homepage
+
+
+Login:
+    Provide form
+
+    Else:
+        Make sure username exists
+        Make sure password hash matches
+        Log user in
+        Provide homepage
+
+
+Logout:
+    Log user out
+    Provide login page
+
+
+Check out:
+    Make sure book is available
+    Add this to their profile
+    Send notification to admin
+    Provide homepage with status message
