@@ -2,8 +2,7 @@ Login:
     Provide form
 
     Else:
-        Make sure username exists
-        Make sure password hash matches
+        Make sure email + password-hash matches
         Log user in
         Provide homepage
 

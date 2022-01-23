@@ -14,13 +14,10 @@ Add:
 
 
 Remove:
-    Provide form
-
-    Else:
-        Make sure book is in library
-        Make sure book is not checked out
-        Remove book from database
-        Provide homepage with status message
+    Make sure book is in library
+    Make sure book is not checked out
+    Remove book from database
+    Provide homepage with status message
 
 
 Return:
