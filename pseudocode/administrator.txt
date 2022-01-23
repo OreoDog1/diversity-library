@@ -6,7 +6,7 @@ Index:
 Add:
     Provide form
 
-    Else:
+    If submitted:
         Make sure book exists
         Check if book is already in library
         Add book and other info to database
@@ -14,14 +14,18 @@ Add:
 
 
 Remove:
-    Make sure book is in library
-    Make sure book is not checked out
-    Remove book from database
-    Provide homepage with status message
+    Provide form
+
+    If submitted:
+        Make sure book is in library
+        Make sure book is not checked out
+        Remove book from database
+        Provide homepage with status message
 
 
 Return:
     Make sure book was checked out
-    Send notification to user who checked out the book
     Change book's status in database
+    Check if is requested and send email to next in line
+    Pop-up with person's name
     Provide homepage with status message

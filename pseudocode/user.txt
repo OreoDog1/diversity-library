@@ -1,5 +1,4 @@
 Index:
-    Find status of all books the user has checked out
     Provide homepage
 
 
@@ -18,8 +17,16 @@ Browse:
     Provide page
 
 
-Check out:
-    Make sure book is available
-    Add this to their profile
-    Send notification to admin
+Request:
+    If book is available:
+        Send notification to admin
+        Add this to their profile as requested available
+    Else:
+        Add to requested
     Provide homepage with status message
+
+
+Profile:
+    Find status of all books the user has checked out
+    Find status of all book user has requested
+    Provide profile page
