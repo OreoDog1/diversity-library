@@ -27,6 +27,7 @@ CREATE TABLE tags (
 CREATE TABLE requests (
     user_id INTEGER,
     book_id INTEGER,
+    date TEXT,
     status TEXT,
     FOREIGN KEY(user_id) REFERENCES users(id),
     FOREIGN KEY(book_id) REFERENCES books(id)
