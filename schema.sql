@@ -1,7 +1,6 @@
 CREATE TABLE users (
     id INTEGER,
     email TEXT,
-    username TEXT,
     password_hash TEXT,
     PRIMARY KEY(id)
 );
