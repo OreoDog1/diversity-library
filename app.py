@@ -96,3 +96,11 @@ def login:
 
     session["user_id"] = user["id"]
     return redirect("/")
+
+
+@app.route("/logout")
+def logout:
+    # Forget any previous user
+    session.clear()
+
+    return redirect("/")
