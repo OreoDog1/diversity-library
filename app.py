@@ -68,4 +68,31 @@ def register():
     return redirect("/")
 
 
+@app.route("/login", methods=["GET", "POST"])
+def login:
+    # Forget any previous user
+    session.clear()
 
+    # Provide form
+    if request.method == "GET":
+        return render_template("login.html")
+
+    # Get email
+    email = request.form.get("email")
+    if not email:
+        flash("Email is required")
+        return
+
+    # Get password
+    password = request.form.get("password")
+    if not password:
+        flash("Password is required")
+
+    # Make sure username and password are valid
+    user = find_user(email)
+    if not user or not check_password_hash(user["hash"], password):
+        flash("Invalid username and/or password")
+        return
+
+    session["user_id"] = user["id"]
+    return redirect("/")
