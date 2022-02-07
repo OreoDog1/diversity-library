@@ -69,7 +69,7 @@ def register():
 
 
 @app.route("/login", methods=["GET", "POST"])
-def login:
+def login():
     # Forget any previous user
     session.clear()
 
@@ -99,7 +99,7 @@ def login:
 
 
 @app.route("/logout")
-def logout:
+def logout():
     # Forget any previous user
     session.clear()
 
