@@ -12,7 +12,7 @@ class Database:
 
     def find_user(email):
         try:
-            return self.execute("SELECT * FROM users WHERE email = ?", (email,))[0]
+            return self.execute("SELECT * FROM users WHERE email = ?", (email))[0]
         except:
             return None
 
