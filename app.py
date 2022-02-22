@@ -1,7 +1,7 @@
-from cs50 import SQL
+from flask_mysqldb import MySQL
 from database import Database
-from flask import Flask, render_template
-from flask_session import Session
+from flask import Flask, render_template, session
+#from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
@@ -20,12 +20,17 @@ def after_request(response):
 
 
 # Configure session to use filesystem instead of signed cookies
-app.config["SESSION_FILE_DIR"] = mkdtemp()
-app.config["SESSION_PERMANENT"] = False
-app.config["SESSION_TYPE"] = "filesystem"
-Session(app)
+#app.config["SESSION_FILE_DIR"] = mkdtemp()
+#app.config["SESSION_PERMANENT"] = False
+#app.config["SESSION_TYPE"] = "filesystem"
+#Session(app)
 
-db = Database(SQL("sqlite:///library.db"))
+app.config['MYSQL_DB'] = 'library.db'
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+app.config['SECRET_KEY'] = 'fgdfhhrthbkiuyrtasd'
+mysql = MySQL(app)
+cur = mysql.connection.cursor()
+db = Database(cur)
 
 
 @app.route('/')
@@ -71,7 +76,7 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     # Forget any previous user
-    session.clear()
+    session.pop("user_id", None)
 
     # Provide form
     if request.method == "GET":
@@ -101,6 +106,6 @@ def login():
 @app.route("/logout")
 def logout():
     # Forget any previous user
-    session.clear()
+    session.pop("user_id", None)
 
     return redirect("/")
