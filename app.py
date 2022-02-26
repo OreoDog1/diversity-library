@@ -34,33 +34,33 @@ def index():
     return render_template('index.html')
 
 
-@app.route("/register", methods=["GET, POST"])
+@app.route("/register", methods=["GET", "POST"])
 def register():
     # Provide form
     if request.method == "GET":
         return render_template("register.html")
 
-    # Make sure email was providedflas
+    # Make sure email was provided
     email = request.form.get("email")
     if not email:
         flash("Email is Required")
-        return
+        return redirect("/")
 
     # Make sure email isn't taken
     if email in [user["email"] for user in db.get_users()]:
         flash("Email taken")
-        return
+        return redirect("/")
 
     # Make sure password was provided
     password = request.form.get("password")
     if not password:
         flash("Password is required")
-        return
+        return redirect("/")
 
     # Make sure passwords match
     if password != request.form.get("confirmation"):
         flash("Passwords don't match")
-        return
+        return redirect("/")
 
     # Add info to database
     db.create_user(email, generate_password_hash(password))
@@ -82,7 +82,7 @@ def login():
     email = request.form.get("email")
     if not email:
         flash("Email is required")
-        return
+        return redirect("/")
 
     # Get password
     password = request.form.get("password")
@@ -93,7 +93,7 @@ def login():
     user = find_user(email)
     if not user or not check_password_hash(user["hash"], password):
         flash("Invalid username and/or password")
-        return
+        return redirect("/")
 
     session["user_id"] = user["id"]
     return redirect("/")
