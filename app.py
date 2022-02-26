@@ -90,8 +90,8 @@ def login():
         flash("Password is required")
 
     # Make sure username and password are valid
-    user = find_user(email)
-    if not user or not check_password_hash(user["hash"], password):
+    user = db.find_user(email)
+    if not user or not check_password_hash(user["password_hash"], password):
         flash("Invalid username and/or password")
         return redirect("/")
 
