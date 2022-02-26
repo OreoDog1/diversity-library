@@ -7,7 +7,7 @@ class Database:
     def get_users(self):
         return self.sql.execute("SELECT * FROM users")
 
-    def create_user(self, email, password_hash)
+    def create_user(self, email, password_hash):
         self.sql.execute("INSERT INTO users (email, password_hash) VALUES(?, ?)", email, password_hash)
 
     def find_user(email):

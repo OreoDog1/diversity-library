@@ -1,7 +1,8 @@
 from cs50 import SQL
 from database import Database
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, flash, request, session
 from flask_session import Session
+from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
@@ -39,7 +40,7 @@ def register():
     if request.method == "GET":
         return render_template("register.html")
 
-    # Make sure email was provided
+    # Make sure email was providedflas
     email = request.form.get("email")
     if not email:
         flash("Email is Required")
